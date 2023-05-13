@@ -1,6 +1,6 @@
 # Shortify
 
-Shortify is a fast and reliable URL shortener written in Go, using Redis as a database and built with the Fiber web framework. With Shortify, you can easily shorten your long URLs into short ones, making it easier to share them on social media or anywhere else.
+Shortify is a fast and reliable URL shortener written in Go, using Redis as a database and built with the Fiber web framework.
 
 ![Shortify](https://github.com/Pradumnasaraf/Shortify/assets/51878265/2c2686e8-82aa-481c-9d4a-07c2d3711398)
 
