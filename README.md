@@ -1,6 +1,6 @@
 # Shortify
 
-Shortify is a URL shortener written in Go. It uses Redis as a database and is built with the Fiber.
+**Shortify** is a URL shortener written in Go. It uses [Redis](https://redis.io/) as a database and is built with the [Fiber](https://github.com/gofiber/fiber).
 
 ![Shortify](https://github.com/Pradumnasaraf/Shortify/assets/51878265/2c2686e8-82aa-481c-9d4a-07c2d3711398)
 
