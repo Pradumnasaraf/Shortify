@@ -41,7 +41,7 @@ The `short` field is optional. If you don't provide it, a random string will be 
 }
 ```
 
-You can modify the expiry time and rate limit in the `.env` file. To test if the short URL works, enter it into your browser's address bar. For example, if the short URL is `http://localhost:8080/pradumna`, you will be redirected to the original URL.
+You can modify the rate limit in the `.env` file. To test if the short URL works, enter it into your browser's address bar. For example, if the short URL is `http://localhost:8080/pradumna`, you will be redirected to the original URL.
 
 ## 📜 License
 
