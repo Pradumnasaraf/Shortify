@@ -15,7 +15,7 @@ Before you begin, make sure you have Docker and Docker Compose installed on your
    ```
 3. Start the project by running the following command from the root directory of the project:
    ```bash
-   docker-compose up
+   docker compose up
    ```
 
 ## 📝 Usage
