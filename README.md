@@ -8,7 +8,7 @@
 
 **Prerequisite**: Docker and Docker Compose installed
 
-To run to project. after cloning the repository. First create a `.env` file inside the `api` folder by copying the `.env.example` file. Also you can run the following command to create the `.env` file (from the root).
+To run to project after cloning the repository. First create a `.env` file inside the `api` folder by copying the `.env.example` file. Also you can run the following command to create the `.env` file (from the root).
 
 ```bash
 cp api/.env.example api/.env
