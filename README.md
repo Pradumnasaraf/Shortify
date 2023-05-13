@@ -1,35 +1,38 @@
 # Shortify
 
-Shortify is a URL shortener written in Go. It uses Redis as a database and is built with the Fiber.
+**Shortify** is a fast and reliable URL shortener written in Go, using [Redis](https://redis.io/) as a database and built with the [Fiber](https://github.com/gofiber/fiber) web framework.
+
+![Shortify](https://github.com/Pradumnasaraf/Shortify/assets/51878265/c52de6fa-a638-4ff9-9dfe-2009017ebba3)
 
 ## 📦 Installation
 
-- Prerequisite: Docker and Docker Compose installed
+Before you begin, make sure you have [Docker](https://www.docker.com/) and [Docker Compose v2](https://docs.docker.com/compose/) installed on your machine. Then, follow these steps to install and run Shortify:
 
-To run to project. after cloning the repository. First create a `.env` file inside the `api` folder by copying the `.env.example` file. Also you can run the following command to create the `.env` file (from the root).
+1. Clone this repository to your local machine.
 
-```bash
-cp api/.env.example api/.env
-```
+2. Create a `.env` file inside the `api` folder by copying the `.env.example` file. You can do this by running the following command from the root directory of the project:
 
-Then run the following command to start the project.
-
-```bash
-docker compose up
-```
+   ```bash
+   cp api/.env.example api/.env
+   ```
+   
+3. Start the project by running the following command from the root directory of the project:
+   ```bash
+   docker compose up
+   ```
 
 ## 📝 Usage
 
-To create a short URL send a `POST` request to the `/api/v1` endpoint with the following body.
+To create a short URL, send a `POST` request to the `/api/v1` endpoint with the following JSON body:
 
 ```json
 {
   "url": "https://pradumnasaraf.dev",
-  "short": "pradumna" // this is optional. If not provided a random string will be generated
+  "short": "pradumna"
 }
 ```
 
-In the response you will receive the recive the following body. If we don't provide the `short` field in the request body then the `short` field in the response will be a random string. Also, we can modify the expiry time and rate limit in the `.env` file.
+The `short` field is optional. If you don't provide it, a random string will be generated. In response, you will receive the following JSON body:
 
 ```json
 {
@@ -41,7 +44,7 @@ In the response you will receive the recive the following body. If we don't prov
 }
 ```
 
-Now to check if the short URL received in the response is working, head over to broswer and enter URL. For example, if the short URL is `http://localhost:3000/pradumna` then enter `http://localhost:3000/pradumna` in the browser. You will be redirected to the original URL.
+You can modify the rate limit in the `.env` file. To test if the short URL works, enter it into your browser's address bar. For example, if the short URL is `http://localhost:8080/pradumna`, you will be redirected to the original URL.
 
 ## 📜 License
 
@@ -49,4 +52,4 @@ This project is licensed under the Apache-2.0 license - see the [LICENSE](LICENS
 
 ## 🛡 Security
 
-If you discover a security vulnerability within this project, please check the [SECURITY](SECURITY.md) for more information.
+If you discover a security vulnerability within this project, please check the [SECURITY](SECURITY.md) file for more information.
