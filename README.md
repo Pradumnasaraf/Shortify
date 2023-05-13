@@ -1,12 +1,12 @@
 # Shortify
 
-Shortify is a fast and reliable URL shortener written in Go, using Redis as a database and built with the Fiber web framework.
+**Shortify** is a fast and reliable URL shortener written in Go, using [Redis](https://redis.io/) as a database and built with the [Fiber](https://github.com/gofiber/fiber) web framework.
 
 ![Shortify](https://github.com/Pradumnasaraf/Shortify/assets/51878265/2c2686e8-82aa-481c-9d4a-07c2d3711398)
 
 ## 📦 Installation
 
-Before you begin, make sure you have Docker and Docker Compose installed on your machine. Then, follow these steps to install and run Shortify:
+Before you begin, make sure you have [Docker](https://www.docker.com/) and [Docker Compose v2](https://docs.docker.com/compose/) installed on your machine. Then, follow these steps to install and run Shortify:
 
 1. Clone this repository to your local machine.
 2. Create a `.env` file inside the `api` folder by copying the `.env.example` file. You can do this by running the following command from the root directory of the project:
