@@ -2,9 +2,11 @@
 
 Shortify is a URL shortener written in Go. It uses Redis as a database and is built with the Fiber.
 
+![Shortify](https://github.com/Pradumnasaraf/Shortify/assets/51878265/2c2686e8-82aa-481c-9d4a-07c2d3711398)
+
 ## 📦 Installation
 
-- Prerequisite: Docker and Docker Compose installed
+**Prerequisite**: Docker and Docker Compose installed
 
 To run to project. after cloning the repository. First create a `.env` file inside the `api` folder by copying the `.env.example` file. Also you can run the following command to create the `.env` file (from the root).
 
@@ -20,16 +22,16 @@ docker compose up
 
 ## 📝 Usage
 
-To create a short URL send a `POST` request to the `/api/v1` endpoint with the following body.
+To create a short URL send a `POST` request to the `/api/v1` endpoint with the following body. The `short` field is optional. If we don't provide the `short` field then a random string will be generated.
 
 ```json
 {
   "url": "https://pradumnasaraf.dev",
-  "short": "pradumna" // this is optional. If not provided a random string will be generated
+  "short": "pradumna"
 }
 ```
 
-In the response you will receive the recive the following body. If we don't provide the `short` field in the request body then the `short` field in the response will be a random string. Also, we can modify the expiry time and rate limit in the `.env` file.
+In the response you will receive the recive the following body. We can modify the expiry time and rate limit in the `.env` file.
 
 ```json
 {
@@ -41,7 +43,7 @@ In the response you will receive the recive the following body. If we don't prov
 }
 ```
 
-Now to check if the short URL received in the response is working, head over to broswer and enter URL. For example, if the short URL is `http://localhost:3000/pradumna` then enter `http://localhost:3000/pradumna` in the browser. You will be redirected to the original URL.
+Now to check if the short URL received in the response is working, head over to broswer and enter URL. For example, if the short URL is `http://localhost:8080/pradumna` then enter this URL in the browser and you will be redirected to the original URL.
 
 ## 📜 License
 
