@@ -2,23 +2,32 @@ version: "3.7"
 
 services:
   api:
-    container_name: api
+    container_name: shortify-api
     build:
       context: api
       dockerfile: Dockerfile
+    image: shortify-api
     ports:
       - "8080:8080"
     depends_on:
       - db
     env_file:
       - api/.env
-
+    networks:
+      - shortify-network
   db:
-    container_name: db
+    container_name: shortify-db
     build: 
       context: db
       dockerfile: Dockerfile
+    image: shortify-db
     volumes:
       - ./data:/data
     ports:
       - "6379:6379"
+    networks:
+      - shortify-network
+    
+networks:
+  shortify-network:
+    driver: bridge

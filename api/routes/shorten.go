@@ -7,15 +7,15 @@ import (
 
 	"github.com/Pradumnasaraf/url-short/database"
 	"github.com/Pradumnasaraf/url-short/helpers"
+	"github.com/asaskevich/govalidator"
 	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
-	"github.com/asaskevich/govalidator"
 )
 
 type request struct {
 	URL         string        `json:"url"`
-	CustomShort string        `json:"short"`
+	CustomShort string        `json:"short,omitempty"`
 	Expiry      time.Duration `json:"expiry"`
 }
 
@@ -49,12 +49,12 @@ func ShortenURL(c *fiber.Ctx) error {
 		if valueInt <= 0 {
 			// Get the time left for the rate limit to reset
 			limit, _ := r2.TTL(database.Ctx, c.IP()).Result()
-			return c.Status(fiber.StatusTooManyRequests).JSON(fiber.Map{"error": "Rate limit exceeded", "retry_after": limit})
+			return c.Status(fiber.StatusTooManyRequests).JSON(fiber.Map{"error": "Rate limit exceeded", "retry_after": limit / time.Nanosecond / time.Minute})
 		}
 
 	}
 
-	if !govalidator.IsURL(body.URL){
+	if !govalidator.IsURL(body.URL) {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid URL"})
 	}
 
@@ -67,7 +67,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	var id string
 
 	// If the user doesn't provide a custom short URL, generate a random one
-	if body.CustomShort != "" {
+	if body.CustomShort == "" {
 
 		id = uuid.New().String()[:6]
 	} else {
@@ -109,7 +109,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	resp.XRatelimitReset = ttl / time.Nanosecond / time.Minute // Convert the time left to minutes
 
 	// If the user doesn't provide a custom short URL, generate a random one
-	resp.CustomShort = os.Getenv("BASE_URL") + "/" + id
+	resp.CustomShort = os.Getenv("APP_DOMAIN") + "/" + id
 
 	return c.Status(fiber.StatusCreated).JSON(resp)
 }
