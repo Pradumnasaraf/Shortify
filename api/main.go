@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Pradumnasaraf/url-short/routes"
+	"github.com/Pradumnasaraf/Shortify/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"

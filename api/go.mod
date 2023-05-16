@@ -1,4 +1,4 @@
-module github.com/Pradumnasaraf/url-short
+module github.com/Pradumnasaraf/Shortify
 
 go 1.20
 
