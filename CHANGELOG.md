@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/Pradumnasaraf/Shortify/compare/v1.1.2...v1.2.0) (2023-07-24)
+
+
+### Features
+
+* add unit tests ([#3](https://github.com/Pradumnasaraf/Shortify/issues/3)) ([314a3fe](https://github.com/Pradumnasaraf/Shortify/commit/314a3fe3a8564b380d3ff51c5fef1ce330a7d14b))
+
+
+
 ## [1.1.2](https://github.com/Pradumnasaraf/Shortify/compare/v1.1.1...v1.1.2) (2023-05-16)
 
 
