@@ -52,8 +52,8 @@ func TestResolveRouteForError(t *testing.T) {
 		t.Error("Error while testing resolve route")
 	}
 
-	if resp.StatusCode != 404 {
-		t.Error("Expected status code 301, got ", resp.StatusCode)
+	if resp.StatusCode != 401 {
+		t.Error("Expected status code 404, got ", resp.StatusCode)
 	}
 
 }
