@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/Pradumnasaraf/Shortify/compare/v1.2.0...v1.2.1) (2023-07-24)
+
+
+### Bug Fixes
+
+* restructure the app ([#5](https://github.com/Pradumnasaraf/Shortify/issues/5)) ([32c3baa](https://github.com/Pradumnasaraf/Shortify/commit/32c3baac72ae2088a1ce713cedc7f8c5911dbeb1))
+
+
+
 # [1.2.0](https://github.com/Pradumnasaraf/Shortify/compare/v1.1.2...v1.2.0) (2023-07-24)
 
 
