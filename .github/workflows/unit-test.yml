@@ -26,7 +26,7 @@ jobs:
 
       # Can't use ./api/tests due to next step
       - name: Copy .env
-        run: cd ./api && cp ./tests/.env.example .env
+        run: cd ./api/tests && cp .env.example .env
 
       - name: Test
-        run: go test -v ./tests/...
+        run: cd ./api && go test -v ./tests/...
