@@ -10,7 +10,7 @@ import (
 func LoadTestData() {
 
 	db := database.CreateClient(0)
-	db.Set(database.Ctx, "test-short", "https://www.google.com", 0)
+	db.Set(database.Ctx, "shortpath1", "https://test1.com", 0)
 }
 
 func LoadEnv() {

@@ -22,7 +22,7 @@ func TestResolveRoute(t *testing.T) {
 	app.Get("/:shortPath", routes.ResolveURL)
 
 	// Test for valid short path
-	req := httptest.NewRequest("GET", "/test-short", nil)
+	req := httptest.NewRequest("GET", "/shortpath1", nil)
 	resp, err := app.Test(req)
 
 	if err != nil {
@@ -43,7 +43,7 @@ func TestResolveRouteForError(t *testing.T) {
 	app.Get("/:shortPath", routes.ResolveURL)
 
 	// Test for valid short path
-	req := httptest.NewRequest("GET", "/test-short1", nil)
+	req := httptest.NewRequest("GET", "/shortpath0", nil)
 	resp, err := app.Test(req)
 
 	if err != nil {
