@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"encoding/json"
 	"net/http/httptest"
 	"testing"
 
@@ -9,7 +10,7 @@ import (
 	"github.com/magiconair/properties/assert"
 )
 
-// Test Redirect functionality
+// Test Resolve Route
 func TestResolveRoute(t *testing.T) {
 
 	// Load .env file
@@ -33,7 +34,7 @@ func TestResolveRoute(t *testing.T) {
 
 }
 
-// Test for Error
+// Test Resolve Route for a short path that doesn't exist
 func TestResolveRouteForError(t *testing.T) {
 
 	// Load .env file
@@ -50,6 +51,11 @@ func TestResolveRouteForError(t *testing.T) {
 		t.Error("Error while testing resolve route")
 	}
 
+	var responseBody Error
+	json.NewDecoder(resp.Body).Decode(&responseBody)
+
 	assert.Equal(t, resp.StatusCode, 404, "Status code should be 404")
+	assert.Equal(t, resp.Header.Get("Content-Type"), "application/json", "Content-Type should be application/json")
+	assert.Equal(t, responseBody.Error, "Short path not found", "Error should be Short path not found")
 
 }

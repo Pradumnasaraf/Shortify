@@ -16,7 +16,7 @@ jobs:
         ports:
           - 6379:6379
     steps:
-      - name: Checkout Code
+      - name: Checking code
         uses: actions/checkout@v3
 
       - name: Setup Go
@@ -24,9 +24,9 @@ jobs:
         with:
           go-version: 1.19
 
-      # Can't use ./api/tests due to next step
-      - name: Copy .env
+      # We 1st need to change dir to run the tests
+      - name: Copy .env.example to .env
         run: cd ./api/tests && cp .env.example .env
 
-      - name: Test
+      - name: Run Unit Tests
         run: cd ./api && go test -v ./tests/...

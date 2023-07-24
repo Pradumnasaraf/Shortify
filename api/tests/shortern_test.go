@@ -107,9 +107,6 @@ func TestShortenRouteWithSameCustomShort(t *testing.T) {
 	json.NewDecoder(resp.Body).Decode(&responseBody)
 
 	assert.Equal(t, resp.StatusCode, 403, "Status code should be 403")
-	if resp.StatusCode != 201 {
-		return
-	}
 	assert.Equal(t, responseBody.Error, "Short URL already exists", "Error should be Short path already exists")
 	assert.Equal(t, resp.Header.Get("Content-Type"), "application/json", "Content-Type should be application/json")
 

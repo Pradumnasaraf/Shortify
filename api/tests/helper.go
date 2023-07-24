@@ -7,11 +7,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func LoadTestData() {
-
-	db := database.CreateClient(0)
-	db.Set(database.Ctx, "shortpath1", "https://test1.com", 0)
-}
+// LoadEnv loads the .env file
 
 func LoadEnv() {
 	err := godotenv.Load()
@@ -19,4 +15,11 @@ func LoadEnv() {
 		fmt.Println("Unable to load .env file. Lodding from ENV if available")
 	}
 
+}
+
+// LoadTestData loads test data into the database
+func LoadTestData() {
+
+	db := database.CreateClient(0)
+	db.Set(database.Ctx, "shortpath1", "https://test1.com", 0)
 }
