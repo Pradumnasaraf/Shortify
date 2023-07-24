@@ -19,9 +19,9 @@ jobs:
         with:
           go-version: 1.19
       - name: Build
-        run: cd api && go build -v ./...
+        run: go build -v ./...
       - name: Format
-        run: cd api && diff <(gofmt -d .) <(echo -n)
+        run: diff <(gofmt -d .) <(echo -n)
 
   golangci-lint:
     name: Lint
