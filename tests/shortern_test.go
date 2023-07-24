@@ -37,7 +37,10 @@ func TestShortenRouteNoCustomShort(t *testing.T) {
 	}
 
 	var responseBody Response
-	json.NewDecoder(resp.Body).Decode(&responseBody)
+	err = json.NewDecoder(resp.Body).Decode(&responseBody)
+	if err != nil {
+		t.Fatalf("Error while decoding response body: %v", err)
+	}
 
 	assert.Equal(t, resp.StatusCode, 201, "Status code should be 200")
 	if resp.StatusCode != 201 {
@@ -70,7 +73,10 @@ func TestShortenRouteWithCustomShort(t *testing.T) {
 	}
 
 	var responseBody Response
-	json.NewDecoder(resp.Body).Decode(&responseBody)
+	err = json.NewDecoder(resp.Body).Decode(&responseBody)
+	if err != nil {
+		t.Fatalf("Error while decoding response body: %v", err)
+	}
 
 	assert.Equal(t, resp.StatusCode, 201, "Status code should be 201")
 	if resp.StatusCode != 201 {
@@ -104,7 +110,10 @@ func TestShortenRouteWithSameCustomShort(t *testing.T) {
 	}
 
 	var responseBody Error
-	json.NewDecoder(resp.Body).Decode(&responseBody)
+	err = json.NewDecoder(resp.Body).Decode(&responseBody)
+	if err != nil {
+		t.Fatalf("Error while decoding response body: %v", err)
+	}
 
 	assert.Equal(t, resp.StatusCode, 403, "Status code should be 403")
 	assert.Equal(t, responseBody.Error, "Short URL already exists", "Error should be Short path already exists")
