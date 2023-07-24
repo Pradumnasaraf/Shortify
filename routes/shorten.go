@@ -14,17 +14,17 @@ import (
 )
 
 type request struct {
-	URL         	string        `json:"url"`
+	URL             string        `json:"url"`
 	CustomShortPath string        `json:"short_path,omitempty"`
-	Expiry      	time.Duration `json:"expiry"`
+	Expiry          time.Duration `json:"expiry"`
 }
 
 type response struct {
-	URL             	string        `json:"url"`
-	CustomShortUrl     	string     	  `json:"short_url"`
-	Expiry          	time.Duration `json:"expiry"`
-	XRateRemaining  	int           `json:"rate_limit"`
-	XRatelimitReset 	time.Duration `json:"rate_limit_reset"`
+	URL             string        `json:"url"`
+	CustomShortUrl  string        `json:"short_url"`
+	Expiry          time.Duration `json:"expiry"`
+	XRateRemaining  int           `json:"rate_limit"`
+	XRatelimitReset time.Duration `json:"rate_limit_reset"`
 }
 
 func ShortenURL(c *fiber.Ctx) error {
@@ -93,7 +93,7 @@ func ShortenURL(c *fiber.Ctx) error {
 
 	resp := response{
 		URL:             body.URL,
-		CustomShortUrl:     "",
+		CustomShortUrl:  "",
 		Expiry:          body.Expiry,
 		XRateRemaining:  10,
 		XRatelimitReset: 30,

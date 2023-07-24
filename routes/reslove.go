@@ -24,7 +24,7 @@ func ResolveURL(c *fiber.Ctx) error {
 	defer rInr.Close()
 
 	// Increment the counter for the short URL
-	_ = rInr.Incr(database.Ctx, "counter") 
+	_ = rInr.Incr(database.Ctx, "counter")
 
 	return c.Redirect(value, fiber.StatusMovedPermanently)
 }
