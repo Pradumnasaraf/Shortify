@@ -52,7 +52,10 @@ func TestResolveRouteForError(t *testing.T) {
 	}
 
 	var responseBody Error
-	json.NewDecoder(resp.Body).Decode(&responseBody)
+	err = json.NewDecoder(resp.Body).Decode(&responseBody)
+	if err != nil {
+		t.Error("Error while decoding response body")
+	}
 
 	assert.Equal(t, resp.StatusCode, 404, "Status code should be 404")
 	assert.Equal(t, resp.Header.Get("Content-Type"), "application/json", "Content-Type should be application/json")
