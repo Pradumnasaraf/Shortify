@@ -1,0 +1,32 @@
+name: Unit Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.19
+
+      # Can't use ./api/tests due to next step
+      - name: Copy .env
+        run: cd ./api && cp ./tests/.env .env
+
+      - name: Test
+        run: go test -v ./tests/...
