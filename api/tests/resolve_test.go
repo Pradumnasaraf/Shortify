@@ -6,11 +6,11 @@ import (
 
 	"github.com/Pradumnasaraf/Shortify/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/magiconair/properties/assert"
 )
 
 // Test Redirect functionality
 func TestResolveRoute(t *testing.T) {
-
 
 	// Load .env file
 	LoadEnv()
@@ -29,9 +29,7 @@ func TestResolveRoute(t *testing.T) {
 		t.Error("Error while testing resolve route")
 	}
 
-	if resp.StatusCode != 301 {
-		t.Error("Expected status code 301, got ", resp.StatusCode)
-	}
+	assert.Equal(t, resp.StatusCode, 301, "Status code should be 301")
 
 }
 
@@ -52,8 +50,6 @@ func TestResolveRouteForError(t *testing.T) {
 		t.Error("Error while testing resolve route")
 	}
 
-	if resp.StatusCode != 401 {
-		t.Error("Expected status code 404, got ", resp.StatusCode)
-	}
+	assert.Equal(t, resp.StatusCode, 404, "Status code should be 404")
 
 }
