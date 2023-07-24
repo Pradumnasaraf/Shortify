@@ -56,6 +56,5 @@ func TestResolveRouteForError(t *testing.T) {
 
 	assert.Equal(t, resp.StatusCode, 404, "Status code should be 404")
 	assert.Equal(t, resp.Header.Get("Content-Type"), "application/json", "Content-Type should be application/json")
-	assert.Equal(t, responseBody.Error, "Short path not found", "Error should be Short path not found")
-
+	assert.Equal(t, responseBody.Error, "Short URL not found in DB", "Error should be Short URL not found in DB")
 }
