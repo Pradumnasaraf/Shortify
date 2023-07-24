@@ -8,6 +8,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.43.0
 	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.5.1
+	github.com/magiconair/properties v1.8.7
 )
 
 require (
