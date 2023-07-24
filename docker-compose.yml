@@ -4,7 +4,7 @@ services:
   api:
     container_name: shortify-api
     build:
-      context: api
+      context: .
       dockerfile: Dockerfile
     image: shortify-api
     ports:
@@ -12,22 +12,19 @@ services:
     depends_on:
       - db
     env_file:
-      - api/.env
+      - .env.docker
     networks:
       - shortify-network
   db:
     container_name: shortify-db
-    build: 
-      context: db
-      dockerfile: Dockerfile
-    image: shortify-db
+    image: redis:5.0.5-alpine
     volumes:
       - ./data:/data
     ports:
       - "6379:6379"
     networks:
       - shortify-network
-    
+
 networks:
   shortify-network:
     driver: bridge
