@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/Pradumnasaraf/Shortify/compare/v1.2.1...v1.2.2) (2023-07-27)
+
+
+### Bug Fixes
+
+* Release workflow ([0d6aad9](https://github.com/Pradumnasaraf/Shortify/commit/0d6aad9b4d6cffbb6b8b21b52937e83495b1e749))
+
+
+
 ## [1.2.1](https://github.com/Pradumnasaraf/Shortify/compare/v1.2.0...v1.2.1) (2023-07-24)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * variable + route naming convention ([f28568d](https://github.com/Pradumnasaraf/Shortify/commit/f28568dbbfea3dd58601a0a509731835824da733))
-
-
-
-# [1.1.0](https://github.com/Pradumnasaraf/Shortify/compare/bb1125c72890f45b97c0cb7c5bd6ddcc69eb3e6a...v1.1.0) (2023-05-13)
-
-
-### Features
-
-* impove the compose and shortner ([bb1125c](https://github.com/Pradumnasaraf/Shortify/commit/bb1125c72890f45b97c0cb7c5bd6ddcc69eb3e6a))
 
 
 
