@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   changelog:
     name: Create Release and Changelog
@@ -17,14 +20,14 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v6
         with:
-          github-token: ${{ secrets.PA_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           version-file: "./version.yaml"
 
       - name: Create Release
         if: steps.changelog.outputs.skipped == 'false'
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.PA_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.changelog.outputs.tag }}
           name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
