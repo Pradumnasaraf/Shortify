@@ -8,9 +8,9 @@ import (
 	"github.com/Pradumnasaraf/Shortify/database"
 	"github.com/Pradumnasaraf/Shortify/helpers"
 	"github.com/asaskevich/govalidator"
-	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
+	"github.com/redis/go-redis/v9"
 )
 
 type request struct {
