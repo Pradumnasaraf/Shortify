@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/Pradumnasaraf/Shortify/compare/v1.2.2...v1.2.3) (2026-07-16)
+
+
+### Bug Fixes
+
+* check deferred Redis client Close errors ([926d3fc](https://github.com/Pradumnasaraf/Shortify/commit/926d3fc53f2953baf44fdb8e6173f08b94ffdd44))
+
+
+
 ## [1.2.2](https://github.com/Pradumnasaraf/Shortify/compare/v1.2.1...v1.2.2) (2023-07-27)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * module name in go.mod and in imports ([3515261](https://github.com/Pradumnasaraf/Shortify/commit/3515261233d70914b0e47c43bf1df54cc7bcad3e))
-
-
-
-## [1.1.1](https://github.com/Pradumnasaraf/Shortify/compare/v1.1.0...v1.1.1) (2023-05-15)
-
-
-### Bug Fixes
-
-* variable + route naming convention ([f28568d](https://github.com/Pradumnasaraf/Shortify/commit/f28568dbbfea3dd58601a0a509731835824da733))
 
 
 
