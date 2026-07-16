@@ -10,7 +10,7 @@ func ResolveURL(c *fiber.Ctx) error {
 	shortUrlPath := c.Params("shortPath")
 
 	r := database.CreateClient(0)
-	defer r.Close()
+	defer func() { _ = r.Close() }()
 
 	// Get the actual URL from the short URL
 	value, err := r.Get(database.Ctx, shortUrlPath).Result()
@@ -21,7 +21,7 @@ func ResolveURL(c *fiber.Ctx) error {
 	}
 
 	rInr := database.CreateClient(1)
-	defer rInr.Close()
+	defer func() { _ = rInr.Close() }()
 
 	// Increment the counter for the short URL
 	_ = rInr.Incr(database.Ctx, "counter")

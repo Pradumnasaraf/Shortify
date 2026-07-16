@@ -37,7 +37,7 @@ func ShortenURL(c *fiber.Ctx) error {
 
 	// Rate limiting
 	r2 := database.CreateClient(1)
-	defer r2.Close()
+	defer func() { _ = r2.Close() }()
 
 	// Get the rate limit for the IP address
 	value, err := r2.Get(database.Ctx, c.IP()).Result()
@@ -74,7 +74,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	}
 
 	r := database.CreateClient(0)
-	defer r.Close()
+	defer func() { _ = r.Close() }()
 
 	// Check if the short URL already exists
 	val, _ := r.Get(database.Ctx, id).Result()
