@@ -5,7 +5,7 @@ COPY . .
 RUN go build -o main .
 
 # Step 2
-FROM alpine:3.22
+FROM alpine:3.24
 RUN adduser -S -D -H -h /app appuser
 USER appuser
 COPY --from=builder /build/main /app/
