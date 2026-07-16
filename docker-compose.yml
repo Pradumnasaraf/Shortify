@@ -17,7 +17,7 @@ services:
       - shortify-network
   db:
     container_name: shortify-db
-    image: redis:5.0.5-alpine
+    image: redis:7-alpine
     volumes:
       - ./data:/data
     ports:

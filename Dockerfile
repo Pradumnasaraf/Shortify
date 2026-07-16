@@ -1,11 +1,11 @@
 # Stage 1
-FROM golang:1.20.3-alpine3.16 AS builder
+FROM golang:1.25-alpine AS builder
 WORKDIR /build
 COPY . .
 RUN go build -o main .
 
 # Step 2
-FROM alpine:3.18
+FROM alpine:3.22
 RUN adduser -S -D -H -h /app appuser
 USER appuser
 COPY --from=builder /build/main /app/
